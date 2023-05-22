@@ -1,13 +1,37 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: Project Activity
+author: Andy
+description: Generates an email summary of project activity, showing issues that have moved, been added or commented.
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+    token:
+        description: "Github Token"
+        required: true
+    smtp-server:
+        description: "SMTP server"
+        required: true
+    smtp-server-port:
+        description: "SMTP server port"
+        required: true
+    auth-user:
+        description: "Sender user email"
+        required: true
+    auth-pwd:
+        description: "Sender user password (for gmail generate and use an app password)"
+        required: true
+    email-from:
+        description: "Sender from name"
+        required: true
+    recipient-emails:
+        description: "Recipents email addresses (comma-separated)"
+        required: true
+    project-numbers:
+        description: "Project Numbers (comma-separated list, or, all)"
+        required: required
+    days:
+        description: "Days back, from run date, of project activity to summarise"
+        required: true
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+    using: "node16"
+    main: "dist/index.js"
+branding:
+    icon: 'activity'
+    color: 'blue'
