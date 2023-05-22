@@ -374,6 +374,7 @@ async function run() {
         // email kanbans
 
         if (recipientEmails.indexOf("@") > -1) {
+
             let subject =
                 "Project activity " +
                 owner +
@@ -384,14 +385,10 @@ async function run() {
                 " days";
             
             const transport = nodemailer.createTransport({
-                host: smtpServer,
-                port: smtpServerPort,
-                secure: true,
+                service: 'gmail',
                 auth: {
-                    type: 'OAuth2',
                     user: authUser,
-                    serviceClient: 'github-action-test',
-                    privateKey: authPwd,
+                    pass: authPwd,
                 },
             });
 
