@@ -26,9 +26,9 @@ jobs:
       with:
           token: ${{ secrets.GITHUB_TOKEN }}
           smtp-server: "smtp.gmail.com"
-          smtp-server-port: "587"
+          smtp-server-port: "465"
           auth-user: ${{ secrets.EMAIL_USR }}
-          auth-pass: ${{ secrets.EMAIL_PWD }}
+          auth-pwd: ${{ secrets.EMAIL_PWD }}
           email-from: ${{ secrets.EMAIL_FROM }}
           recipient-emails: ${{ secrets.RECIPIENT_EMAILS }}
           project-numbers: all
