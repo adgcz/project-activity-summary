@@ -28,7 +28,7 @@ jobs:
           smtp-server: "smtp.gmail.com"
           smtp-server-port: "587"
           auth-user: ${{ secrets.EMAIL_USR }}
-          auth-pwd: ${{ secrets.EMAIL_PWD }}
+          auth-pass: ${{ secrets.EMAIL_PWD }}
           email-from: ${{ secrets.EMAIL_FROM }}
           recipient-emails: ${{ secrets.RECIPIENT_EMAILS }}
           project-numbers: all
