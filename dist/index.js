@@ -27559,16 +27559,15 @@ async function run() {
                 daysToQuery +
                 " days";
 
-            let isTLS = false;
             const transport = nodemailer.createTransport({
-                host: smtpServer,
-                port: smtpServerPort,
-                secure: isTLS,
-                auth: {
-                    user: authUser,
-                    pass: authPwd,
-                },
-            });
+                    host: smtpServer,
+                    port: smtpServerPort,
+                    secure: false,
+                    auth: {
+                        user: authUser,
+                        pass: authPwd,
+                    },
+                });
 
             const info = await transport.sendMail({
                 from: get_from(emailFrom, authUser),
@@ -27576,6 +27575,7 @@ async function run() {
                 subject: subject,
                 html: cssStyle + projectKanbans.join(""),
             });
+
         }
     } catch (error) {
         core.setFailed(error.message);
