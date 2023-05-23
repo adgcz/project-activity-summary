@@ -27558,25 +27558,17 @@ async function run() {
                 " - past " +
                 daysToQuery +
                 " days";
-            
+
+            let isTLS = false;
             const transport = nodemailer.createTransport({
-                service: 'gmail',
+                host: smtpServer,
+                port: smtpServerPort,
+                secure: isTLS,
                 auth: {
                     user: authUser,
                     pass: authPwd,
                 },
             });
-
-            // let isTLS = false;
-            // const transport = nodemailer.createTransport({
-            //     host: smtpServer,
-            //     port: smtpServerPort,
-            //     secure: isTLS,
-            //     auth: {
-            //         user: authUser,
-            //         pass: authPwd,
-            //     },
-            // });
 
             const info = await transport.sendMail({
                 from: get_from(emailFrom, authUser),
